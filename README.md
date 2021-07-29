@@ -20,4 +20,4 @@ npm run build
 ```
 npm run lint
 ```
-![screenshot](https://github.com/Abhijeet2019/VueJSDemo/blob/main/src/screenshot/Demo.PNG)
+![screenshot](https://raw.githubusercontent.com/Abhijeet2019/VueJSDemo/main/src/screenshot/Demo.PNG)

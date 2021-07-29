@@ -26,7 +26,7 @@
     <br>
 
     <table class="table">
-  <thead>
+  <thead v-if="list.length > 0">
     <tr>
       <td scope="col"></td>
       <th scope="col">User Name</th>

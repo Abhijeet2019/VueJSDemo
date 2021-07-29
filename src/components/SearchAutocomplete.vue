@@ -56,7 +56,7 @@
         default: () => [],
       },
       SelectedUserkey : {
-        type: String}
+        type: String }
     },
    
     data() {
@@ -92,12 +92,15 @@
       },
       filterActulaItemResultskey(key) {
       return this.actualitems.filter((item) => {
-          return item.[key].toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+        var ikey = item[""+key+""];
+         ikey = ikey ? ikey : "";
+          return ikey.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ;
+        
         });
       },
       filterResults() {
         this.results = this.items.filter((item) => {
-          return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+          return item.toString().toLowerCase().indexOf(this.search.toLowerCase()) > -1;
         });
       },
       onChange() {

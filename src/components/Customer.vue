@@ -25,10 +25,10 @@
  
     <br>
 
-    <table class="table">
+    <table id="customers">
   <thead v-if="list.length > 0">
     <tr>
-      <td scope="col"></td>
+      <th scope="col">&nbsp;</th>
       <th scope="col">User Name</th>
       <th scope="col">Organization</th>
       <th scope="col">Tickets</th>
@@ -57,10 +57,14 @@
     
   </tbody>
 </table>
+<br>
 <div v-if="showuserdetail">
-<div  id="userDetail" v-for="user in selectedUser" v-bind:key="user._id">
-<strong> User Detalis</strong>
-<br>Url: {{user.url}}
+<div id="userDetail" class="card" v-for="user in selectedUser" v-bind:key="user._id">
+  <h5 class="card-header">User Detalis</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{user.name}}</h5>
+    <div class="card-text" style="font-size: 12px;" >
+    <br>Url: {{user.url}}
 <br>External Id: {{user.external_id}}
 <br>Name: {{user.name}}
 <br>Alias: {{user.alias}}
@@ -75,12 +79,13 @@
 <br>Phone: {{user.phone}}
 <br>Signature: {{user.signature}}
 <br>Organization_id: {{user.organization_id}}
-<br>Tags: <div v-for="tag in user.tags"  v-bind:key="tag">{{tag}}</div>
+<br>Tags: <span class="status" v-for="tag in user.tags"  v-bind:key="tag"><span class="active">{{tag}}</span></span>
 <br>Suspended: {{user.suspended}},
 <br>Role: {{user.role}}
+    </div>
+
+  </div>
 </div>
-
-
   </div>
   </div>
   </div>
@@ -211,5 +216,51 @@ li {
 }
 a {
   color: #42b983;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.status .active {
+    background: #cff6dd;
+    color: #1fa750;
+}
+
+.status span {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 25px;
+}
+
+.status .active:after {
+    background: #23bd5a;
+}
+.status span:after {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%;
 }
 </style>
